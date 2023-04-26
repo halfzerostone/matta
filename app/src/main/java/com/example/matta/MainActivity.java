@@ -54,33 +54,33 @@ public class MainActivity extends AppCompatActivity {
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(10);
+                cellTextView.setTextSize(20);
             }
         }
         cellTextView = findViewById(R.id.cell_05);
         System.out.println(cellnum);
-        cellTextView.setTextSize(10);
+        cellTextView.setTextSize(20);
         cellTextView = findViewById(R.id.cell_06);
         System.out.println(cellnum);
-        cellTextView.setTextSize(10);
+        cellTextView.setTextSize(20);
         for (int row = 6; row < 9; row++) {
             for (int column = 0; column < 6; column++) {
                 cellnum="cell_"+column+row;
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(10);
+                cellTextView.setTextSize(20);
             }
         }
         cellTextView = findViewById(R.id.cell_09);
         System.out.println(cellnum);
-        cellTextView.setTextSize(10);
+        cellTextView.setTextSize(20);
         cellTextView = findViewById(R.id.cell_010);
         System.out.println(cellnum);
-        cellTextView.setTextSize(10);
+        cellTextView.setTextSize(20);
         cellTextView = findViewById(R.id.cell_011);
         System.out.println(cellnum);
-        cellTextView.setTextSize(10);
+        cellTextView.setTextSize(20);
 
         new Thread(){
             @Override
