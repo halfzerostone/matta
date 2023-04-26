@@ -54,33 +54,33 @@ public class MainActivity extends AppCompatActivity {
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(30);
+                cellTextView.setTextSize(10);
             }
         }
         cellTextView = findViewById(R.id.cell_05);
         System.out.println(cellnum);
-        cellTextView.setTextSize(30);
+        cellTextView.setTextSize(10);
         cellTextView = findViewById(R.id.cell_06);
         System.out.println(cellnum);
-        cellTextView.setTextSize(30);
+        cellTextView.setTextSize(10);
         for (int row = 6; row < 9; row++) {
             for (int column = 0; column < 6; column++) {
                 cellnum="cell_"+column+row;
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(30);
+                cellTextView.setTextSize(10);
             }
         }
         cellTextView = findViewById(R.id.cell_09);
         System.out.println(cellnum);
-        cellTextView.setTextSize(30);
+        cellTextView.setTextSize(10);
         cellTextView = findViewById(R.id.cell_010);
         System.out.println(cellnum);
-        cellTextView.setTextSize(30);
+        cellTextView.setTextSize(10);
         cellTextView = findViewById(R.id.cell_011);
         System.out.println(cellnum);
-        cellTextView.setTextSize(30);
+        cellTextView.setTextSize(10);
 
         new Thread(){
             @Override
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         int minute = calendar.get(Calendar.MINUTE);
                         int timevalue=hour*60+minute;
                         // TextView 업데이트
-                        timerTextView.setText(String.format("%02d:%02d 어서와 모두 널 기다려", hour, minute));
+                        timerTextView.setText(String.format("%02d:%02d", hour, minute));
                         if(timevalue>=490&&timevalue<540){
                             int timepercentage=(timevalue-490)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 1교시 %d%%", hour, minute,timepercentage));
