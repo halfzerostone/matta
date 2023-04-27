@@ -161,24 +161,24 @@ public class MainActivity extends AppCompatActivity {
                         }else if(timevalue>=540&&timevalue<550){
                             int timepercentage=(timevalue-540)*100/10;
                             if(dat.equals("월요일")){
-                                name="국어선택";
+                                name="국어";
                             }else if(dat.equals("화요일")){
                                 name="선택 C";
                             }else if(dat.equals("수요일")){
-                                name="제2외국어";
+                                name="외국어";
                             }else if(dat.equals("목요일")){
                                 name="선택 C";
                             }else if(dat.equals("금요일")){
                                 name="영어 B";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour,minute,name));
                         }else if(timevalue>=550&&timevalue<600){
                             int timepercentage=(timevalue-550)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 2교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=600&&timevalue<610){
                             int timepercentage=(timevalue-600)*100/10;
                             if(dat.equals("월요일")){
-                                name="제2외국어";
+                                name="외국어";
                             }else if(dat.equals("화요일")){
                                 name="기하";
                             }else if(dat.equals("수요일")){
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("금요일")){
                                 name="선택 B";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=610&&timevalue<660){
                             int timepercentage=(timevalue-610)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 3교시 %d%%", hour, minute,timepercentage));
@@ -199,13 +199,13 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("화요일")){
                                 name="선택 B";
                             }else if(dat.equals("수요일")){
-                                name="국어선택";
+                                name="국어";
                             }else if(dat.equals("목요일")){
-                                name="국어선택";
+                                name="국어";
                             }else if(dat.equals("금요일")){
                                 name="진로";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=670&&timevalue<720){
                             int timepercentage=(timevalue-660)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 4교시 %d%%", hour, minute,timepercentage));
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                             if(dat.equals("월요일")){
                                 name="영어 A";
                             }else if(dat.equals("화요일")){
-                                name="국어선택";
+                                name="국어";
                             }else if(dat.equals("수요일")){
                                 name="스생";
                             }else if(dat.equals("목요일")){
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("금요일")){
                                 name="기하";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 점심시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 점심시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=780&&timevalue<830){
                             int timepercentage=(timevalue-780)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 5교시 %d%%", hour, minute,timepercentage));
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("금요일")){
                                 name="자율";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=840&&timevalue<890){
                             int timepercentage=(timevalue-840)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 6교시 %d%%", hour, minute,timepercentage));
@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("금요일")){
                                 name="자율";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 청소(안하는)시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 청소(안하는)시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=910&&timevalue<960){
                             int timepercentage=(timevalue-910)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 7교시 %d%%", hour, minute,timepercentage));

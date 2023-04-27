@@ -156,7 +156,7 @@
                 <TextView
                     android:id="@+id/cell_51"
                     android:gravity="center"
-                    android:text="국어선택"
+                    android:text="국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="5"
                     app:layout_columnWeight="1"
@@ -177,7 +177,7 @@
                 <TextView
                     android:id="@+id/cell_12"
                     android:gravity="center"
-                    android:text="국어선택"
+                    android:text="국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="1"
                     app:layout_columnWeight="1"
@@ -197,7 +197,7 @@
                 <TextView
                     android:id="@+id/cell_32"
                     android:gravity="center"
-                    android:text="제2외국어"
+                    android:text="외국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="3"
                     app:layout_columnWeight="1"
@@ -238,7 +238,7 @@
                 <TextView
                     android:id="@+id/cell_13"
                     android:gravity="center"
-                    android:text="제2외국어"
+                    android:text="외국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="1"
                     app:layout_columnWeight="1"
@@ -319,7 +319,7 @@
                 <TextView
                     android:id="@+id/cell_34"
                     android:gravity="center"
-                    android:text="국어선택"
+                    android:text="국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="3"
                     app:layout_columnWeight="1"
@@ -329,7 +329,7 @@
                 <TextView
                     android:id="@+id/cell_44"
                     android:gravity="center"
-                    android:text="국어선택"
+                    android:text="국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="4"
                     app:layout_columnWeight="1"
@@ -381,7 +381,7 @@
                 <TextView
                     android:id="@+id/cell_26"
                     android:gravity="center"
-                    android:text="국어선택"
+                    android:text="국어"
                     android:textColor="#FFFFFF"
                     app:layout_column="2"
                     app:layout_columnWeight="1"
