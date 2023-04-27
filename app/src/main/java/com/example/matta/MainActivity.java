@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("Friday")){
                                 name="영어 B";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,name));
+                            timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%% 다음시간:%s", hour, minute,timepercentage,dat));
                         }else if(timevalue>=550&&timevalue<600){
                             int timepercentage=(timevalue-550)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 2교시 %d%%", hour, minute,timepercentage));
