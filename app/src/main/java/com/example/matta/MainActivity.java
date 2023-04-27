@@ -54,33 +54,33 @@ public class MainActivity extends AppCompatActivity {
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(20);
+                cellTextView.setTextSize(25);
             }
         }
         cellTextView = findViewById(R.id.cell_05);
         System.out.println(cellnum);
-        cellTextView.setTextSize(20);
+        cellTextView.setTextSize(25);
         cellTextView = findViewById(R.id.cell_06);
         System.out.println(cellnum);
-        cellTextView.setTextSize(20);
+        cellTextView.setTextSize(25);
         for (int row = 6; row < 9; row++) {
             for (int column = 0; column < 6; column++) {
                 cellnum="cell_"+column+row;
                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                 cellTextView = findViewById(resId);
                 System.out.println(cellnum);
-                cellTextView.setTextSize(20);
+                cellTextView.setTextSize(25);
             }
         }
         cellTextView = findViewById(R.id.cell_09);
         System.out.println(cellnum);
-        cellTextView.setTextSize(20);
+        cellTextView.setTextSize(25);
         cellTextView = findViewById(R.id.cell_010);
         System.out.println(cellnum);
-        cellTextView.setTextSize(20);
+        cellTextView.setTextSize(25);
         cellTextView = findViewById(R.id.cell_011);
         System.out.println(cellnum);
-        cellTextView.setTextSize(20);
+        cellTextView.setTextSize(25);
 
         new Thread(){
             @Override
@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                             }else if(dat.equals("금요일")){
                                 name="자율";
                             }
-                            timerTextView.setText(String.format("%02d:%02d 청소(안하는)시간 다음시간:%s", hour, minute,name));
+                            timerTextView.setText(String.format("%02d:%02d 시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=910&&timevalue<960){
                             int timepercentage=(timevalue-910)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 7교시 %d%%", hour, minute,timepercentage));
@@ -264,20 +264,20 @@ public class MainActivity extends AppCompatActivity {
                             int timepercentage=(timevalue-960)*100/10;
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=970&&timevalue<1080){
-                            int timepercentage=(timevalue-970)*100/90;
-                            timerTextView.setText(String.format("%02d:%02d 오자시간 %d%%", hour, minute,timepercentage));
+                            int timepercentage=(timevalue-970)*100/110;
+                            timerTextView.setText(String.format("%02d:%02d 오후자습 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=1080&&timevalue<1140){
                             int timepercentage=(timevalue-1080)*100/60;
                             timerTextView.setText(String.format("%02d:%02d 석식시간 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=1140&&timevalue<1230){
                             int timepercentage=(timevalue-1140)*100/90;
-                            timerTextView.setText(String.format("%02d:%02d 야자 1교시 %d%%", hour, minute,timepercentage));
+                            timerTextView.setText(String.format("%02d:%02d 야자 1 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=1230&&timevalue<1240){
                             int timepercentage=(timevalue-1230)*100/10;
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=1240&&timevalue<1320){
                             int timepercentage=(timevalue-1240)*100/80;
-                            timerTextView.setText(String.format("%02d:%02d 야자 2교시 %d%%", hour, minute,timepercentage));
+                            timerTextView.setText(String.format("%02d:%02d 야자 2 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=1320){
                             timerTextView.setText(String.format("%02d:%02d 집가 이제...", hour, minute));
                         }
