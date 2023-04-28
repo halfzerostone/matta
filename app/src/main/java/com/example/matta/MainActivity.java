@@ -106,17 +106,19 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-                    elements =doc.select(".time_normal_list").get(1);
-                    msg=elements.text();
-                    String [] menus=msg.split("\\s+");
-
-                    date=doc.select(".cm_date").get(1);
-                    datestring=date.text();
-                    datestring=datestring.replaceAll((today),"");
-                    Output+="\n"+datestring+"\n";
-                    dinnercheck=datestring.replaceAll(regex,"");
-
                     if(lunchcheck.equals(dinnercheck)){
+
+                        elements =doc.select(".time_normal_list").get(1);
+                        msg=elements.text();
+                        String [] menus=msg.split("\\s+");
+
+                        date=doc.select(".cm_date").get(1);
+                        datestring=date.text();
+                        datestring=datestring.replaceAll((today),"");
+                        Output+="\n"+datestring+"\n";
+                        dinnercheck=datestring.replaceAll(regex,"");
+
+
                         for (String sentence : menus) {
                             System.out.println(sentence); // 각 단어 출력 후 줄바꿈
                             Output += sentence + "\n";
