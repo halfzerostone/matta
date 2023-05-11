@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     date=doc.select(".cm_date").get(1);
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
-                    Output+="\n"+datestring+"\n";
+                    //Output+="\n"+datestring+"\n";
                     dinnercheck=datestring.replaceAll(regex,"");
                     if(lunchcheck.equals(dinnercheck)){
 
