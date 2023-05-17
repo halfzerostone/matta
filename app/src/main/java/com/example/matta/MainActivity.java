@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     String name;
     String cellnum;
     TextView cellTextView;
+    String dateUI;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
                     String Output="";
-                    Output+=datestring+"\n";
+                    dateUI=datestring.replaceAll("점심","");
+                    Output+=dateUI+"\n";
+                    Output+="점심\n";
                     lunchcheck=datestring.replaceAll(regex,"");
 
                     for (String sentence : menuf) {
@@ -113,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     date=doc.select(".cm_date").get(1);
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
-                    //Output+="\n"+datestring+"\n";
+                    Output+="---------------------------------------"+"\n저녁\n";
                     dinnercheck=datestring.replaceAll(regex,"");
                     if(lunchcheck.equals(dinnercheck)){
 
@@ -157,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                         int timevalue=hour*60+minute;
                         // TextView 업데이트
                         timerTextView.setText(String.format("%02d:%02d", hour, minute));
-                        if(timevalue>=490&&timevalue<540){
+                        if(timevalue>=490&&timevalue<540){//8시 10분 1교시
                             int timepercentage=(timevalue-490)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 1교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=540&&timevalue<550){
