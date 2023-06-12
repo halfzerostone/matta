@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.textView);
-        textView.setTextSize(40);
+        //textView.setTextSize(40);
         timerTextView=findViewById(R.id.textView2);
         timerTextView.setTextSize(40);
         for (int row = 0; row < 5; row++) {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     String Output="";
                     dateUI=datestring.replaceAll("점심","");
                     Output+=dateUI+"\n";
-                    Output+="점심\n";
+                    Output+="";
                     lunchcheck=datestring.replaceAll(regex,"");
 
                     for (String sentence : menuf) {
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     date=doc.select(".cm_date").get(1);
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
-                    Output+="---------------------------------------"+"\n저녁\n";
+                    Output+="---------------------------------------"+"\n";
                     dinnercheck=datestring.replaceAll(regex,"");
                     if(lunchcheck.equals(dinnercheck)){
 

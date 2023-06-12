@@ -41,7 +41,8 @@
                 android:layout_weight="11"
                 android:background="@drawable/border"
                 app:columnCount="6"
-                app:rowCount="12">
+                app:rowCount="12"
+                >
 
                 <TextView
                     android:id="@+id/cell_00"
@@ -587,13 +588,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
             android:fontFamily="sans-serif"
             android:gravity="center|right"
             android:text="냠냠"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp" />
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
