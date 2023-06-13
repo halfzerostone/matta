@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     String cellnum;
     TextView cellTextView;
     String dateUI;
-
-
+    String outputdate;
+    String outputtime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -188,102 +188,229 @@ public class MainActivity extends AppCompatActivity {
                             int timepercentage=(timevalue-490)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 1교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=540&&timevalue<550){
+                            outputtime="2";
                             int timepercentage=(timevalue-540)*100/10;
                             if(dat.equals("월요일")){
-                                name="국어";
+                                outputdate="Monday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
+
                             }else if(dat.equals("화요일")){
-                                name="선택 C";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="외국어";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="선택 C";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="영어 B";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour,minute,name));
                         }else if(timevalue>=550&&timevalue<600){
                             int timepercentage=(timevalue-550)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 2교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=600&&timevalue<610){
+                            outputtime="3";
                             int timepercentage=(timevalue-600)*100/10;
                             if(dat.equals("월요일")){
-                                name="외국어";
+                                outputdate="Monday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("화요일")){
-                                name="기하";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="선택 A";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="스생";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="선택 B";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=610&&timevalue<660){
                             int timepercentage=(timevalue-610)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 3교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=660&&timevalue<670){
+                            outputtime="4";
                             int timepercentage=(timevalue-660)*100/10;
                             if(dat.equals("월요일")){
-                                name="영어 B";
+                                outputdate="Monday";;
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("화요일")){
-                                name="선택 B";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="국어";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="국어";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="진로";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=670&&timevalue<720){
                             int timepercentage=(timevalue-660)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 4교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=720&&timevalue<780){
+                            outputtime="7";
                             int timepercentage=(timevalue-720)*100/60;
                             if(dat.equals("월요일")){
-                                name="영어 A";
+                                outputdate="Monday";;
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("화요일")){
-                                name="국어";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="스생";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="선택 B";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="기하";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 점심시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=780&&timevalue<830){
                             int timepercentage=(timevalue-780)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 5교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=830&&timevalue<840){
+                            outputtime="7";
                             int timepercentage=(timevalue-830)*100/10;
                             if(dat.equals("월요일")){
-                                name="선택 C";
+                                outputdate="Monday";;
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("화요일")){
-                                name="영어 A";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="선택 D";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="심리";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="자율";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=840&&timevalue<890){
                             int timepercentage=(timevalue-840)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 6교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=890&&timevalue<910){
+                            outputtime="7";
                             int timepercentage=(timevalue-890)*100/20;
                             if(dat.equals("월요일")){
-                                name="창체";
+                                outputdate="Monday";;
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("화요일")){
-                                name="선택 A";
+                                outputdate="Tuesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("수요일")){
-                                name="영어 B";
+                                outputdate="Wednesday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("목요일")){
-                                name="선택 E";
+                                outputdate="Thursday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }else if(dat.equals("금요일")){
-                                name="자율";
+                                outputdate="Friday";
+                                cellnum="cell_"+outputdate+outputtime;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                name= cellTextView.getText().toString();
                             }
                             timerTextView.setText(String.format("%02d:%02d 시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=910&&timevalue<960){
