@@ -41,47 +41,71 @@ public class MainActivity extends AppCompatActivity {
     String cellnum;
     TextView cellTextView;
     String dateUI;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView=findViewById(R.id.textView);
-        //textView.setTextSize(40);
+        textView=(TextView) findViewById(R.id.textViewMain);
+        //textView.setTextSize(30);
         timerTextView=findViewById(R.id.textView2);
-        timerTextView.setTextSize(40);
-        for (int row = 0; row < 5; row++) {
-            for (int column = 0; column < 6; column++) {
-                cellnum="cell_"+column+row;
-                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
-                cellTextView = findViewById(resId);
-                System.out.println(cellnum);
-                cellTextView.setTextSize(25);
+        timerTextView.setTextSize(30);
+        for (int column = 0; column < 6; column++) {
+            for (int row = 0; row < 9; row++) {
+                if(column==0&&row!=5){
+                    cellnum="cell_Layout"+row;
+                    System.out.println(cellnum);
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                } else if(column==1&&row!=5){
+                    cellnum="cell_Monday"+row;
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                }else if(column==2&&row!=5){
+                    cellnum="cell_Tuesday"+row;
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                }else if(column==3&&row!=5){
+                    cellnum="cell_Wednesday"+row;
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                }else if(column==4&&row!=5){
+                    cellnum="cell_Thursday"+row;
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                }else if(column==5&&row!=5){
+                    cellnum="cell_Friday"+row;
+                    int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                    cellTextView = findViewById(resId);
+                    System.out.println(cellnum);
+                    cellTextView.setTextSize(30);
+                }
             }
         }
-        cellTextView = findViewById(R.id.cell_05);
+
+        cellTextView = findViewById(R.id.cell_Layout5);
         System.out.println(cellnum);
-        cellTextView.setTextSize(25);
-        cellTextView = findViewById(R.id.cell_06);
+        cellTextView.setTextSize(30);
+        cellTextView = findViewById(R.id.cell_Layout9);
         System.out.println(cellnum);
-        cellTextView.setTextSize(25);
-        for (int row = 6; row < 9; row++) {
-            for (int column = 0; column < 6; column++) {
-                cellnum="cell_"+column+row;
-                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
-                cellTextView = findViewById(resId);
-                System.out.println(cellnum);
-                cellTextView.setTextSize(25);
-            }
-        }
-        cellTextView = findViewById(R.id.cell_09);
+        cellTextView.setTextSize(30);
+        cellTextView = findViewById(R.id.cell_Layout10);
         System.out.println(cellnum);
-        cellTextView.setTextSize(25);
-        cellTextView = findViewById(R.id.cell_010);
+        cellTextView.setTextSize(30);
+        cellTextView = findViewById(R.id.cell_Layout11);
         System.out.println(cellnum);
-        cellTextView.setTextSize(25);
-        cellTextView = findViewById(R.id.cell_011);
-        System.out.println(cellnum);
-        cellTextView.setTextSize(25);
+        cellTextView.setTextSize(30);
 
         new Thread(){
             @Override
