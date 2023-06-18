@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5D1E6A"
+    android:background="#462A5B"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -24,15 +24,32 @@
             android:orientation="vertical"
             android:weightSum="12">
 
-            <TextView
-                android:id="@+id/textView2"
+            <LinearLayout
+                android:id="@+id/Topview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="시간보여줘"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp" />
+                android:orientation="horizontal"
+                android:weightSum="12">
+
+                <NumberPicker
+                    android:id="@+id/Classpick"
+                    android:theme="@style/numberPickerCustom"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></NumberPicker>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_weight="11"
+                    android:layout_height="match_parent"
+                    android:text="시간보여줘"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/mainfont"/>
+            </LinearLayout>
 
             <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/grid_layout"
@@ -42,10 +59,12 @@
                 android:background="@drawable/border"
                 app:columnCount="6"
                 app:rowCount="12"
+                android:fontFamily="@font/mainfont"
                 >
 
                 <TextView
                     android:id="@+id/cell_Layout0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:textColor="#FFFFFF"
                     app:layout_column="0"
@@ -55,6 +74,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="월"
                     android:textColor="#FFFFFF"
@@ -65,6 +85,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="화"
                     android:textColor="#FFFFFF"
@@ -75,6 +96,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="수"
                     android:textColor="#FFFFFF"
@@ -85,6 +107,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="목"
                     android:textColor="#FFFFFF"
@@ -95,6 +118,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday0"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="금"
                     android:textColor="#FFFFFF"
@@ -105,6 +129,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="1교시"
                     android:textColor="#FFFFFF"
@@ -115,6 +140,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 A"
                     android:textColor="#FFFFFF"
@@ -125,6 +151,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="미감"
                     android:textColor="#FFFFFF"
@@ -135,6 +162,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="기하"
                     android:textColor="#FFFFFF"
@@ -145,6 +173,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="기하"
                     android:textColor="#FFFFFF"
@@ -155,6 +184,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday1"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
                     android:textColor="#FFFFFF"
@@ -166,6 +196,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="2교시"
                     android:textColor="#FFFFFF"
@@ -176,6 +207,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
                     android:textColor="#FFFFFF"
@@ -186,6 +218,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 C"
                     android:textColor="#FFFFFF"
@@ -196,6 +229,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="외국어"
                     android:textColor="#FFFFFF"
@@ -206,6 +240,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 C"
                     android:textColor="#FFFFFF"
@@ -216,6 +251,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday2"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 B"
                     android:textColor="#FFFFFF"
@@ -227,6 +263,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="3교시"
                     android:textColor="#FFFFFF"
@@ -237,6 +274,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="외국어"
                     android:textColor="#FFFFFF"
@@ -247,6 +285,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="기하"
                     android:textColor="#FFFFFF"
@@ -257,6 +296,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 A"
                     android:textColor="#FFFFFF"
@@ -267,6 +307,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="스생"
                     android:textColor="#FFFFFF"
@@ -277,6 +318,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday3"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 B"
                     android:textColor="#FFFFFF"
@@ -288,6 +330,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="4교시"
                     android:textColor="#FFFFFF"
@@ -298,6 +341,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 B"
                     android:textColor="#FFFFFF"
@@ -308,6 +352,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 B"
                     android:textColor="#FFFFFF"
@@ -318,6 +363,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
                     android:textColor="#FFFFFF"
@@ -328,6 +374,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
                     android:textColor="#FFFFFF"
@@ -338,6 +385,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday4"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="진로"
                     android:textColor="#FFFFFF"
@@ -348,6 +396,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout5"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="점심"
                     android:textColor="#FFFFFF"
@@ -360,6 +409,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="5교시"
                     android:textColor="#FFFFFF"
@@ -370,6 +420,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 A"
                     android:textColor="#FFFFFF"
@@ -380,6 +431,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
                     android:textColor="#FFFFFF"
@@ -390,6 +442,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="스생"
                     android:textColor="#FFFFFF"
@@ -400,6 +453,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 B"
                     android:textColor="#FFFFFF"
@@ -410,6 +464,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday6"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="기하"
                     android:textColor="#FFFFFF"
@@ -420,6 +475,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="6교시"
                     android:textColor="#FFFFFF"
@@ -430,6 +486,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 C"
                     android:textColor="#FFFFFF"
@@ -440,6 +497,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 A"
                     android:textColor="#FFFFFF"
@@ -450,6 +508,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 D"
                     android:textColor="#FFFFFF"
@@ -460,6 +519,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="심리"
                     android:textColor="#FFFFFF"
@@ -470,6 +530,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday7"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="자율"
                     android:textColor="#FFFFFF"
@@ -480,6 +541,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="7교시"
                     android:textColor="#FFFFFF"
@@ -490,6 +552,7 @@
 
                 <TextView
                     android:id="@+id/cell_Monday8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="창체"
                     android:textColor="#FFFFFF"
@@ -500,6 +563,7 @@
 
                 <TextView
                     android:id="@+id/cell_Tuesday8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 A"
                     android:textColor="#FFFFFF"
@@ -510,6 +574,7 @@
 
                 <TextView
                     android:id="@+id/cell_Wednesday8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 B"
                     android:textColor="#FFFFFF"
@@ -520,6 +585,7 @@
 
                 <TextView
                     android:id="@+id/cell_Thursday8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 E"
                     android:textColor="#FFFFFF"
@@ -530,6 +596,7 @@
 
                 <TextView
                     android:id="@+id/cell_Friday8"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="자율"
                     android:textColor="#FFFFFF"
@@ -540,6 +607,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout9"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="오후자습"
                     android:textColor="#FFFFFF"
@@ -551,6 +619,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout10"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="석식"
                     android:textColor="#FFFFFF"
@@ -562,6 +631,7 @@
 
                 <TextView
                     android:id="@+id/cell_Layout11"
+                    android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="야간자습"
                     android:textColor="#FFFFFF"
@@ -588,11 +658,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
             android:autoSizeMaxTextSize="100sp"
+            android:autoSizeMinTextSize="12sp"
             android:autoSizeStepGranularity="2sp"
-            android:fontFamily="sans-serif"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/mainfont"
             android:gravity="center|right"
             android:text="냠냠"
             android:textAlignment="center"
