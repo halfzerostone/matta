@@ -328,16 +328,17 @@ public class MainActivity extends AppCompatActivity {
             public void run(){
                 Document doc =null;
                 try{
+                    String Output="";
                     doc=Jsoup.connect(URL).get();
                     //doc.outputSettings().prettyPrint(false);
                     Element elements =doc.select(".time_normal_list").first();
                     msg=elements.text();
+                    msg=msg.replaceAll("\\(","");
                     String[] menuf=msg.split("\\s+");
                     Element date=doc.select(".cm_date").first();
-
+                    //Output+=msg;
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
-                    String Output="";
                     dateUI=datestring.replaceAll("점심","");
                     Output+=dateUI+"\n";
                     Output+="";
@@ -356,10 +357,10 @@ public class MainActivity extends AppCompatActivity {
                     date=doc.select(".cm_date").get(1);
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
-                    Output+="---------------------"+"\n";
                     dinnercheck=datestring.replaceAll(regex,"");
                     if(lunchcheck.equals(dinnercheck)){
 
+                        Output+="---------------------"+"\n";
 
 
                         for (String sentence : menus) {
