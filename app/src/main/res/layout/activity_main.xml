@@ -419,7 +419,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Monday6"
+                    android:id="@+id/cell_Monday5"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 A"
@@ -430,7 +430,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Tuesday6"
+                    android:id="@+id/cell_Tuesday5"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="국어"
@@ -441,7 +441,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Wednesday6"
+                    android:id="@+id/cell_Wednesday5"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="스생"
@@ -452,7 +452,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Thursday6"
+                    android:id="@+id/cell_Thursday5"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 B"
@@ -463,7 +463,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Friday6"
+                    android:id="@+id/cell_Friday5"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="기하"
@@ -485,7 +485,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Monday7"
+                    android:id="@+id/cell_Monday6"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 C"
@@ -496,7 +496,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Tuesday7"
+                    android:id="@+id/cell_Tuesday6"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 A"
@@ -507,7 +507,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Wednesday7"
+                    android:id="@+id/cell_Wednesday6"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 D"
@@ -518,7 +518,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Thursday7"
+                    android:id="@+id/cell_Thursday6"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="심리"
@@ -529,7 +529,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Friday7"
+                    android:id="@+id/cell_Friday6"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="자율"
@@ -551,7 +551,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Monday8"
+                    android:id="@+id/cell_Monday7"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="창체"
@@ -562,7 +562,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Tuesday8"
+                    android:id="@+id/cell_Tuesday7"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 A"
@@ -573,7 +573,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Wednesday8"
+                    android:id="@+id/cell_Wednesday7"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="영어 B"
@@ -584,7 +584,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Thursday8"
+                    android:id="@+id/cell_Thursday7"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="선택 E"
@@ -595,7 +595,7 @@
                     app:layout_rowWeight="1" />
 
                 <TextView
-                    android:id="@+id/cell_Friday8"
+                    android:id="@+id/cell_Friday7"
                     android:fontFamily="@font/mainfont"
                     android:gravity="center"
                     android:text="자율"

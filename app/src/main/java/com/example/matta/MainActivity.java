@@ -268,39 +268,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for (int column = 0; column < 6; column++) {
-            for (int row = 0; row < 9; row++) {
-                if(column==0&&row!=5){
+            for (int row = 0; row < 8; row++) {
+                if(column==0){
                     cellnum="cell_Layout"+row;
                     System.out.println(cellnum);
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     System.out.println(cellnum);
                     cellTextView.setTextSize(30);
-                } else if(column==1&&row!=5){
+                } else if(column==1){
                     cellnum="cell_Monday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     System.out.println(cellnum);
                     cellTextView.setTextSize(30);
-                }else if(column==2&&row!=5){
+                }else if(column==2){
                     cellnum="cell_Tuesday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     System.out.println(cellnum);
                     cellTextView.setTextSize(30);
-                }else if(column==3&&row!=5){
+                }else if(column==3){
                     cellnum="cell_Wednesday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     System.out.println(cellnum);
                     cellTextView.setTextSize(30);
-                }else if(column==4&&row!=5){
+                }else if(column==4){
                     cellnum="cell_Thursday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     System.out.println(cellnum);
                     cellTextView.setTextSize(30);
-                }else if(column==5&&row!=5){
+                }else if(column==5){
                     cellnum="cell_Friday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
@@ -311,6 +311,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         cellTextView = findViewById(R.id.cell_Layout5);
+        System.out.println(cellnum);
+        cellTextView.setTextSize(30);
+        cellTextView = findViewById(R.id.cell_Layout8);
         System.out.println(cellnum);
         cellTextView.setTextSize(30);
         cellTextView = findViewById(R.id.cell_Layout9);
@@ -352,7 +355,8 @@ public class MainActivity extends AppCompatActivity {
 
                     elements =doc.select(".time_normal_list").get(1);
                     msg=elements.text();
-                    String [] menus=msg.split("\\s+");
+                    msg=msg.replaceAll("\\(","");
+                    String [] menus=msg.split("\\s+");;
 
                     date=doc.select(".cm_date").get(1);
                     datestring=date.text();
@@ -517,7 +521,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             timerTextView.setText(String.format("%02d:%02d 쉬는시간 다음시간:%s", hour, minute,name));
                         }else if(timevalue>=670&&timevalue<720){
-                            int timepercentage=(timevalue-660)*100/50;
+                            int timepercentage=(timevalue-670)*100/50;
                             timerTextView.setText(String.format("%02d:%02d 4교시 %d%%", hour, minute,timepercentage));
                         }else if(timevalue>=720&&timevalue<780){
                             outputtime="7";
