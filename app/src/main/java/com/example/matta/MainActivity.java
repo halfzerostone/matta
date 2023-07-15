@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.icu.util.Output;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.DocumentsContract;
+import android.view.Gravity;
 import android.widget.GridLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -23,14 +25,20 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;  //여기에 급식 식단표 표시
+    TextView dinnertextView;
+    TextView CalenderView;
     TextView timerTextView; //시간과 다음시간 표시
     private String URL ="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=대덕고";  //급식 크롤링 대상 링크
+    private String CalenderURLbase="https://daedeokhs.djsch.kr/schedule/list.do?s=taedokhs&schdYear=";
+    String CalenderURL;
     String msg; //크롤링에 사용하는 내부 메시지
     String datestring; //오늘 날짜를 자료화함(***같은 형식으로)
     String lunchcheck;  //점심 메뉴 존재 체크용 변수
@@ -40,7 +48,12 @@ public class MainActivity extends AppCompatActivity {
     String today=" TODAY";  //대체할 문자열(공백)
     Calendar calendar = Calendar.getInstance(); //오늘 날짜 받는 변수
     SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE", Locale.getDefault());    //날짜 받는 변수의 형태 선언
+    SimpleDateFormat ymFormat=new SimpleDateFormat("yyyy.MM",Locale.getDefault());
     String dat = dateFormat.format(calendar.getTime()); //분 단위 변수 불러오기
+    String ymdat=ymFormat.format(calendar.getTime());
+    String[] parts=ymdat.split("\\.");
+    String year;
+    String month;
     String name;    //이번시간 이름을 시간표에서 받아오기
     String cellnum; //
     String arraynum;
@@ -53,17 +66,31 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     int myInt;
+    int dayofmonth;
+    String daystring;
+    String[] menuf;
+    int startday;
     String Subject[][]=new String[10][10];
+
+    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        year=parts[0];
+        month=parts[1];
+        CalenderURL=CalenderURLbase+year+"&schdMonth="+month;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView=(TextView) findViewById(R.id.textViewMain);
+        dinnertextView=(TextView) findViewById(R.id.textViewMaindinner);
         //textView.setTextSize(30);
         timerTextView=findViewById(R.id.textView2);
         timerTextView.setTextSize(30);
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        dayofmonth=calendar.get(Calendar.DAY_OF_WEEK);
+        System.out.println(dayofmonth);
+
 
         NumberPicker npker = findViewById(R.id.Classpick);
 
@@ -74,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
-        myInt=pref.getInt("Class", 3);
+        myInt=pref.getInt("Class", 4);
         npker.setValue(myInt);
 
         Class=npker.getValue();
@@ -125,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                         cellnum="cell_Monday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
-                        System.out.println(CurrentSubject);
                         cellTextView.setText(CurrentSubject);
                     }else if(i==2&&j!=5){
                         cellnum="cell_Tuesday"+j;
@@ -205,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
                                 cellnum="cell_Monday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
-                                System.out.println(CurrentSubject);
                                 cellTextView.setText(CurrentSubject);
                             }else if(i==2&&j!=5){
                                 cellnum="cell_Tuesday"+j;
@@ -241,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
                     cellnum="cell_Monday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(CurrentSubject);
                     cellTextView.setText(CurrentSubject);
                 }else if(i==2&&j!=5){
                     cellnum="cell_Tuesday"+j;
@@ -271,79 +295,81 @@ public class MainActivity extends AppCompatActivity {
             for (int row = 0; row < 8; row++) {
                 if(column==0){
                     cellnum="cell_Layout"+row;
-                    System.out.println(cellnum);
+                     
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 } else if(column==1){
                     cellnum="cell_Monday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 }else if(column==2){
                     cellnum="cell_Tuesday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 }else if(column==3){
                     cellnum="cell_Wednesday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 }else if(column==4){
                     cellnum="cell_Thursday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 }else if(column==5){
                     cellnum="cell_Friday"+row;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
-                    System.out.println(cellnum);
+                     
                     cellTextView.setTextSize(30);
                 }
             }
         }
 
         cellTextView = findViewById(R.id.cell_Layout5);
-        System.out.println(cellnum);
+         
         cellTextView.setTextSize(30);
         cellTextView = findViewById(R.id.cell_Layout8);
-        System.out.println(cellnum);
+         
         cellTextView.setTextSize(30);
         cellTextView = findViewById(R.id.cell_Layout9);
-        System.out.println(cellnum);
+         
         cellTextView.setTextSize(30);
         cellTextView = findViewById(R.id.cell_Layout10);
-        System.out.println(cellnum);
+         
         cellTextView.setTextSize(30);
         cellTextView = findViewById(R.id.cell_Layout11);
-        System.out.println(cellnum);
+         
         cellTextView.setTextSize(30);
 
         new Thread(){
+
             @Override
             public void run(){
                 Document doc =null;
                 try{
                     String Output="";
+                    String dinnerOutput="";
                     doc=Jsoup.connect(URL).get();
                     //doc.outputSettings().prettyPrint(false);
                     Element elements =doc.select(".time_normal_list").first();
                     msg=elements.text();
                     msg=msg.replaceAll("\\(","");
-                    String[] menuf=msg.split("\\s+");
+                    menuf=msg.split("\\s+");
                     Element date=doc.select(".cm_date").first();
                     //Output+=msg;
                     datestring=date.text();
                     datestring=datestring.replaceAll((today),"");
                     dateUI=datestring.replaceAll("점심","");
-                    Output+=dateUI+"\n";
+                    Output+="중식"+"\n";
                     Output+="";
                     lunchcheck=datestring.replaceAll(regex,"");
 
@@ -351,53 +377,160 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(sentence); // 각 단어 출력 후 줄바꿈
                         Output+=sentence+"\n";
                     }
-
-
                     elements =doc.select(".time_normal_list").get(1);
                     msg=elements.text();
                     msg=msg.replaceAll("\\(","");
                     String [] menus=msg.split("\\s+");;
-
-                    date=doc.select(".cm_date").get(1);
-                    datestring=date.text();
+                    Element date2=doc.select(".cm_date").get(1);
+                    datestring=date2.text();
                     datestring=datestring.replaceAll((today),"");
+                    dateUI=datestring.replaceAll("중식","석식");
+                    dinnercheck=datestring.replaceAll(regex,"");
                     dinnercheck=datestring.replaceAll(regex,"");
                     if(lunchcheck.equals(dinnercheck)){
-
-                        Output+="---------------------"+"\n";
-
-
+                        dinnerOutput+="석식"+"\n";
                         for (String sentence : menus) {
                             System.out.println(sentence); // 각 단어 출력 후 줄바꿈
-                            Output += sentence + "\n";
+                            dinnerOutput += sentence + "\n";
                         }
-
                     }
-
                     Handler handler = new Handler(Looper.getMainLooper());
                     String finalOutput = Output;
+                    String finaldOutput=dinnerOutput;
                     handler.post(new Runnable() {
                         public void run() {
                             textView.setText(finalOutput);
+                            dinnertextView.setText(finaldOutput);
                         }
                     });
+                    //여기부터 달력업데이트
+
+                        Output="";
+                        doc=Jsoup.connect(CalenderURL).get();
+                        Elements Celements =doc.select(".tb_base_box.tm_box table.tb_calendar tbody tr");
+                        if(Celements == null){
+                            System.out.println("Celements is null");
+                        }else{
+                            System.out.println("Celements is not null");
+                        }
+
+                        msg=Celements.text();
+                        msg = msg.replaceAll("\\([^\\(\\)]*\\)", "");
+                        msg = msg.replaceAll("토", "");
+                        msg = msg.replaceAll("일", "");
+                        menuf=msg.split("\\d+");
+                        List<String> menuList = new ArrayList<>();
+
+                        for (String item : menuf) {
+                            if (!item.trim().isEmpty()) {
+                                menuList.add(item);
+                            }
+                        }
+                        String[] menufWithoutEmpty = menuList.toArray(new String[0]);
+                        
+                        handler = new Handler(Looper.getMainLooper());
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run(){
+                                int position=1;//표시할 칸의 위치
+                                int j=0;//몇주차인지 판단 이게 0~5면 1주차 6~10이면 2주차...
+                                int vieweddays=0;//며칠자의 정보를 나타낼 것인지
+                                for(int k=1;k<menufWithoutEmpty.length+2;k++){
+                                    daystring= "day"+String.valueOf(position);//day에 표시할 칸의 좌표 합치고
+                                    int ressId = getResources().getIdentifier(daystring, "id", getPackageName());//그걸로 하나의 변수로 해서
+                                    TextView todaytextview=findViewById(ressId);//표시할 칸 찾음(1~표시할 문자만큼)
+
+                                    int dayforprint=0;//표시할 날짜(첫주차:k값 2주차 k+2...)
+                                    if(dayofmonth==1){//일요일이 1일이라면
+                                        startday=2;
+                                    }else if(dayofmonth==2){//월요일이 1일이라면
+                                        startday=1;//그달 1일은 월요일
+                                    }else if(dayofmonth==3){
+                                        startday=2;//그달 1일은 화요일
+                                    }else if(dayofmonth==4){
+                                        startday=3;
+                                    }else if(dayofmonth==5){
+                                        startday=4;
+                                    }else if(dayofmonth==6){
+                                        startday=5;
+                                    }else if(dayofmonth==7){
+                                        startday=1;
+                                    }
+                                    if(0<=j&&j<5){
+                                        dayforprint=j;
+                                    }else if(5<=j&&j<=10){
+                                        dayforprint=j+2;
+                                    }else if(10<=j&&j<=15){
+                                        dayforprint=j+4;
+                                    }else if(15<=j&&j<=20){
+                                        dayforprint=j+6;
+                                    }else if(20<=j&&j<=25){
+                                        dayforprint=j+8;
+                                    }else if(25<=j&&j<=30){
+                                        dayforprint=j+10;
+                                    }
+                                    if(startday>position){
+                                        todaytextview.setText(" ");
+                                        todaytextview.setTextSize(30);
+                                        int COLOR=Color.parseColor("#FFFFFF");
+                                        todaytextview.setTextColor(COLOR);
+                                    }else{
+                                        if(menufWithoutEmpty[k-2].substring(0,2).equals(" 월")||menufWithoutEmpty[k-2].substring(0,2).equals(" 화")||menufWithoutEmpty[k-2].substring(0,2).equals(" 수")||menufWithoutEmpty[k-2].substring(0,2).equals(" 목")||menufWithoutEmpty[k-2].substring(0,2).equals(" 금")){
+                                            todaytextview.setText(" "+dayforprint+" "+menufWithoutEmpty[k-2].substring(0,2)+"\n"+menufWithoutEmpty[k-2].substring(2));
+                                            todaytextview.setTextSize(25);
+                                            todaytextview.setGravity(Gravity.CENTER);
+                                            int COLOR=Color.parseColor("#FFFFFF");
+                                            todaytextview.setTextColor(COLOR);
+                                        }else{
+                                            todaytextview.setText(" "+dayforprint+"\n"+menufWithoutEmpty[k-2].substring(1));
+                                            todaytextview.setTextSize(25);
+                                            todaytextview.setGravity(Gravity.CENTER);
+                                            int COLOR=Color.parseColor("#FFFFFF");
+                                            todaytextview.setTextColor(COLOR);
+                                        }
+
+                                    }
+
+                                    position++;
+                                    j++;
+                                    vieweddays++;
+                                }for(int k=menufWithoutEmpty.length+2;k<31;k++){
+
+                                    daystring= "day"+String.valueOf(position);//day에 표시할 칸의 좌표 합치고
+                                    int ressId = getResources().getIdentifier(daystring, "id", getPackageName());//그걸로 하나의 변수로 해서
+                                    TextView todaytextview=findViewById(ressId);//표시할 칸 찾음(1~표시할 문자만큼)todaytextview.setText(" ");
+                                    todaytextview.setTextSize(30);
+                                    int COLOR=Color.parseColor("#FFFFFF");
+                                    todaytextview.setTextColor(COLOR);
+                                    todaytextview.setText(" ");
+                                    position++;
+                                }
+                            }
+                        });
+
+
+
 
 
                 }catch (IOException e){
                     e.printStackTrace();
                 }
-
-
             }
         }.start();
+
+
+
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 runOnUiThread(new Runnable() {
+
                     @Override
                     public void run() {
+
                         // 현재 시간 구하기
                         Calendar calendar = Calendar.getInstance();
                         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -663,5 +796,9 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }, 0, 5);
+    }
+    public void fillcalendar(){
+
+
     }
 }
