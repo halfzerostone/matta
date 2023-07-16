@@ -26,10 +26,12 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;  //여기에 급식 식단표 표시
@@ -70,9 +72,16 @@ public class MainActivity extends AppCompatActivity {
     String daystring;
     String[] menuf;
     int startday;
+    int lastday;
+    static int day;
     String Subject[][]=new String[10][10];
-
+    int todayy;
     int i=0;
+    public static void timerf() {
+        Calendar calendar = Calendar.getInstance();
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println("오늘은 " + day + "일입니다.");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -81,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         CalenderURL=CalenderURLbase+year+"&schdMonth="+month;
 
         super.onCreate(savedInstanceState);
+        timerf();
         setContentView(R.layout.activity_main);
         textView=(TextView) findViewById(R.id.textViewMain);
         dinnertextView=(TextView) findViewById(R.id.textViewMaindinner);
@@ -89,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         timerTextView.setTextSize(30);
         calendar.set(Calendar.DAY_OF_MONTH,1);
         dayofmonth=calendar.get(Calendar.DAY_OF_WEEK);
+        lastday=calendar.getActualMaximum(Calendar.DATE);
         System.out.println(dayofmonth);
 
 
@@ -418,7 +429,8 @@ public class MainActivity extends AppCompatActivity {
                         msg = msg.replaceAll("\\([^\\(\\)]*\\)", "");
                         msg = msg.replaceAll("토", "");
                         msg = msg.replaceAll("일", "");
-                        menuf=msg.split("\\d+");
+                        String regex = "(?<=\\D)(?=\\d)";
+                        menuf=msg.split(regex);
                         List<String> menuList = new ArrayList<>();
 
                         for (String item : menuf) {
@@ -426,89 +438,74 @@ public class MainActivity extends AppCompatActivity {
                                 menuList.add(item);
                             }
                         }
-                        String[] menufWithoutEmpty = menuList.toArray(new String[0]);
-                        
-                        handler = new Handler(Looper.getMainLooper());
-
                         handler.post(new Runnable() {
                             @Override
-                            public void run(){
-                                int position=1;//표시할 칸의 위치
-                                int j=0;//몇주차인지 판단 이게 0~5면 1주차 6~10이면 2주차...
-                                int vieweddays=0;//며칠자의 정보를 나타낼 것인지
-                                for(int k=1;k<menufWithoutEmpty.length+2;k++){
-                                    daystring= "day"+String.valueOf(position);//day에 표시할 칸의 좌표 합치고
-                                    int ressId = getResources().getIdentifier(daystring, "id", getPackageName());//그걸로 하나의 변수로 해서
-                                    TextView todaytextview=findViewById(ressId);//표시할 칸 찾음(1~표시할 문자만큼)
+                            public void run() {
 
-                                    int dayforprint=0;//표시할 날짜(첫주차:k값 2주차 k+2...)
-                                    if(dayofmonth==1){//일요일이 1일이라면
-                                        startday=2;
-                                    }else if(dayofmonth==2){//월요일이 1일이라면
-                                        startday=1;//그달 1일은 월요일
-                                    }else if(dayofmonth==3){
-                                        startday=2;//그달 1일은 화요일
-                                    }else if(dayofmonth==4){
-                                        startday=3;
-                                    }else if(dayofmonth==5){
-                                        startday=4;
-                                    }else if(dayofmonth==6){
-                                        startday=5;
-                                    }else if(dayofmonth==7){
-                                        startday=1;
-                                    }
-                                    if(0<=j&&j<5){
-                                        dayforprint=j;
-                                    }else if(5<=j&&j<=10){
-                                        dayforprint=j+2;
-                                    }else if(10<=j&&j<=15){
-                                        dayforprint=j+4;
-                                    }else if(15<=j&&j<=20){
-                                        dayforprint=j+6;
-                                    }else if(20<=j&&j<=25){
-                                        dayforprint=j+8;
-                                    }else if(25<=j&&j<=30){
-                                        dayforprint=j+10;
-                                    }
-                                    if(startday>position){
-                                        todaytextview.setText(" ");
-                                        todaytextview.setTextSize(30);
+
+
+                                String[] menufWithoutEmpty = menuList.toArray(new String[0]);
+                                int k=1;
+                                for(int i=1;i<dayofmonth;i++){
+                                    daystring="day"+String.valueOf(k);
+                                    int ressid=getResources().getIdentifier(daystring,"id",getPackageName());
+                                    TextView todaytextview=findViewById(ressid);
+                                    if(todaytextview!=null){
+                                        todaytextview.setTextSize(20);
                                         int COLOR=Color.parseColor("#FFFFFF");
                                         todaytextview.setTextColor(COLOR);
-                                    }else{
-                                        if(menufWithoutEmpty[k-2].substring(0,2).equals(" 월")||menufWithoutEmpty[k-2].substring(0,2).equals(" 화")||menufWithoutEmpty[k-2].substring(0,2).equals(" 수")||menufWithoutEmpty[k-2].substring(0,2).equals(" 목")||menufWithoutEmpty[k-2].substring(0,2).equals(" 금")){
-                                            todaytextview.setText(" "+dayforprint+" "+menufWithoutEmpty[k-2].substring(0,2)+"\n"+menufWithoutEmpty[k-2].substring(2));
-                                            todaytextview.setTextSize(25);
-                                            todaytextview.setGravity(Gravity.CENTER);
-                                            int COLOR=Color.parseColor("#FFFFFF");
-                                            todaytextview.setTextColor(COLOR);
-                                        }else{
-                                            todaytextview.setText(" "+dayforprint+"\n"+menufWithoutEmpty[k-2].substring(1));
-                                            todaytextview.setTextSize(25);
-                                            todaytextview.setGravity(Gravity.CENTER);
-                                            int COLOR=Color.parseColor("#FFFFFF");
-                                            todaytextview.setTextColor(COLOR);
+                                        todaytextview.setText(" ");
+                                        k++;
+                                    }
+                                }
+                                for(int i=1;i<=lastday;i++){
+                                    daystring="day"+String.valueOf(k);
+                                    int ressid=getResources().getIdentifier(daystring,"id",getPackageName());
+                                    TextView todaytextview=findViewById(ressid);
+                                    String targetPrefix = String.valueOf(i);
+
+                                    String nregex = "^" + Pattern.quote(targetPrefix);
+                                    if(todaytextview!=null){
+                                        for (String menu : menufWithoutEmpty) {
+                                            if(menu.substring(0,1).equals(String.valueOf(i))&&!menu.substring(1,2).matches("\\d+")){
+                                                todaytextview.setTextSize(20);
+                                                int COLOR=Color.parseColor("#FFFFFF");
+                                                todaytextview.setTextColor(COLOR);
+                                                if(menu.substring(0,2).equals(String.valueOf(day))){
+                                                    COLOR=Color.parseColor("#f5f5dc");
+                                                    todaytextview.setTextColor(COLOR);
+                                                    System.out.println("오늘입니다"+k);
+                                                }
+                                                if(menu.length()>4){
+                                                    todaytextview.setText(menu.substring(0,3)+"\n"+menu.substring(4));
+                                                }else{
+                                                    todaytextview.setText(menu.substring(0,3)+"\n"+menu.substring(3));
+                                                }
+                                            }else if (menu.length() >= 2 && menu.substring(0, 2).equals(String.valueOf(i))) {
+                                                todaytextview.setTextSize(20);
+                                                int COLOR=Color.parseColor("#FFFFFF");
+                                                todaytextview.setTextColor(COLOR);
+                                                if(menu.substring(0,2).equals(String.valueOf(day))){
+                                                    COLOR=Color.parseColor("#f5f5dc");
+                                                    todaytextview.setTextColor(COLOR);
+                                                    System.out.println("오늘입니다"+k);
+                                                }
+                                                if(menu.length()>5){
+                                                    todaytextview.setText(menu.substring(0,4)+"\n"+menu.substring(5));
+                                                }else{
+                                                    todaytextview.setText(menu.substring(0,4)+"\n"+menu.substring(4));
+                                                }
+                                            }
+
+
+
                                         }
 
+                                        k++;
                                     }
-
-                                    position++;
-                                    j++;
-                                    vieweddays++;
-                                }for(int k=menufWithoutEmpty.length+2;k<31;k++){
-
-                                    daystring= "day"+String.valueOf(position);//day에 표시할 칸의 좌표 합치고
-                                    int ressId = getResources().getIdentifier(daystring, "id", getPackageName());//그걸로 하나의 변수로 해서
-                                    TextView todaytextview=findViewById(ressId);//표시할 칸 찾음(1~표시할 문자만큼)todaytextview.setText(" ");
-                                    todaytextview.setTextSize(30);
-                                    int COLOR=Color.parseColor("#FFFFFF");
-                                    todaytextview.setTextColor(COLOR);
-                                    todaytextview.setText(" ");
-                                    position++;
                                 }
                             }
                         });
-
 
 
 
