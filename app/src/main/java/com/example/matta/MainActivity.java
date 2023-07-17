@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             Subject[1][4]="영어 A";
             Subject[1][5]="영어 B";
             Subject[1][6]="선택 C";
-            Subject[1][7]="창체";
+            Subject[1][7]="자율";
             Subject[2][1]="미감";
             Subject[2][2]="선택 C";
             Subject[2][3]="기하";
@@ -156,30 +156,100 @@ public class MainActivity extends AppCompatActivity {
             Subject[5][5]="기하";
             Subject[5][6]="자율";
             Subject[5][7]="자율";
-            for(int i=1;i<5;i++){ //i요일
+            for(int i=1;i<=5;i++){ //i요일
                 for(int j=1;j<7;j++){  //교시
                     CurrentSubject=Subject[i][j];
-                    if(i==1&&j!=5){
+                    if(i==1){
                         cellnum="cell_Monday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
                         cellTextView.setText(CurrentSubject);
-                    }else if(i==2&&j!=5){
+                    }else if(i==2){
                         cellnum="cell_Tuesday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
                         cellTextView.setText(CurrentSubject);
-                    }else if(i==3&&j!=5){
+                    }else if(i==3){
                         cellnum="cell_Wednesday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
                         cellTextView.setText(CurrentSubject);
-                    }else if(i==4&&j!=5){
+                    }else if(i==4){
                         cellnum="cell_Thursday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
                         cellTextView.setText(CurrentSubject);
-                    }else if(i==5&&j!=5){
+                    }else if(i==5){
+                        cellnum="cell_Friday"+j;
+                        int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                        cellTextView = findViewById(resId);
+                        cellTextView.setText(CurrentSubject);
+                    }
+                }
+            }
+        }else if(Class==9){
+            myInt=9;
+            editor.putInt("Class", myInt);
+            editor.apply();
+            Subject[1][1]="선택 A";
+            Subject[1][2]="언매";
+            Subject[1][3]="영어B";
+            Subject[1][4]="미술";
+            Subject[1][5]="경제수학";
+            Subject[1][6]="선택 C";
+            Subject[1][7]="자율";
+            Subject[2][1]="언매";
+            Subject[2][2]="선택 C";
+            Subject[2][3]="영어 B";
+            Subject[2][4]="선택 B";
+            Subject[2][5]="체육";
+            Subject[2][6]="경제수";
+            Subject[2][7]="선택 A";
+            Subject[3][1]="심리학";
+            Subject[3][2]="영어 A";
+            Subject[3][3]="선택 A";
+            Subject[3][4]="선택 E";
+            Subject[3][5]="일본어";
+            Subject[3][6]="언매";
+            Subject[3][7]="경제수학";
+            Subject[4][1]="언매";
+            Subject[4][2]="선택 C";
+            Subject[4][3]="경제수학";
+            Subject[4][4]="선택 D";
+            Subject[4][5]="선택 B";
+            Subject[4][6]="체육";
+            Subject[4][7]="영어 A";
+            Subject[5][1]="진로";
+            Subject[5][2]="언매";
+            Subject[5][3]="선택 B";
+            Subject[5][4]="일본어";
+            Subject[5][5]="영어 B";
+            Subject[5][6]="자율";
+            Subject[5][7]="자율";
+            for(int i=1;i<=5;i++){ //i요일
+                for(int j=1;j<7;j++){  //교시
+                    CurrentSubject=Subject[i][j];
+                    if(i==1 ){
+                        cellnum="cell_Monday"+j;
+                        int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                        cellTextView = findViewById(resId);
+                        cellTextView.setText(CurrentSubject);
+                    }else if(i==2){
+                        cellnum="cell_Tuesday"+j;
+                        int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                        cellTextView = findViewById(resId);
+                        cellTextView.setText(CurrentSubject);
+                    }else if(i==3){
+                        cellnum="cell_Wednesday"+j;
+                        int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                        cellTextView = findViewById(resId);
+                        cellTextView.setText(CurrentSubject);
+                    }else if(i==4){
+                        cellnum="cell_Thursday"+j;
+                        int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                        cellTextView = findViewById(resId);
+                        cellTextView.setText(CurrentSubject);
+                    }else if(i==5){
                         cellnum="cell_Friday"+j;
                         int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                         cellTextView = findViewById(resId);
@@ -206,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
                     Subject[1][4]="영어 A";
                     Subject[1][5]="영어 B";
                     Subject[1][6]="선택 C";
-                    Subject[1][7]="창체";
+                    Subject[1][7]="자율";
                     Subject[2][1]="미감";
                     Subject[2][2]="선택 C";
                     Subject[2][3]="기하";
@@ -238,27 +308,27 @@ public class MainActivity extends AppCompatActivity {
                     for(int i=1;i<5;i++){ //i요일
                         for(int j=1;j<7;j++){  //교시
                             CurrentSubject=Subject[i][j];
-                            if(i==1&&j!=5){
+                            if(i==1 ){
                                 cellnum="cell_Monday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
                                 cellTextView.setText(CurrentSubject);
-                            }else if(i==2&&j!=5){
+                            }else if(i==2 ){
                                 cellnum="cell_Tuesday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
                                 cellTextView.setText(CurrentSubject);
-                            }else if(i==3&&j!=5){
+                            }else if(i==3 ){
                                 cellnum="cell_Wednesday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
                                 cellTextView.setText(CurrentSubject);
-                            }else if(i==4&&j!=5){
+                            }else if(i==4 ){
                                 cellnum="cell_Thursday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
                                 cellTextView.setText(CurrentSubject);
-                            }else if(i==5&&j!=5){
+                            }else if(i==5 ){
                                 cellnum="cell_Friday"+j;
                                 int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                                 cellTextView = findViewById(resId);
@@ -267,33 +337,104 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }//여기서 else if를 함으로서 반 설정
+                else if(Class==9){
+                    myInt=9;
+                    editor.putInt("Class", myInt);
+                    editor.apply();
+                    Subject[1][1]="선택 A";
+                    Subject[1][2]="언매";
+                    Subject[1][3]="영어B";
+                    Subject[1][4]="미술";
+                    Subject[1][5]="경제수학";
+                    Subject[1][6]="선택 C";
+                    Subject[1][7]="자율";
+                    Subject[2][1]="언매";
+                    Subject[2][2]="선택 C";
+                    Subject[2][3]="영어 B";
+                    Subject[2][4]="선택 B";
+                    Subject[2][5]="체육";
+                    Subject[2][6]="경제수";
+                    Subject[2][7]="선택 A";
+                    Subject[3][1]="심리학";
+                    Subject[3][2]="영어 A";
+                    Subject[3][3]="선택 A";
+                    Subject[3][4]="선택 E";
+                    Subject[3][5]="일본어";
+                    Subject[3][6]="언매";
+                    Subject[3][7]="경제수학";
+                    Subject[4][1]="언매";
+                    Subject[4][2]="선택 C";
+                    Subject[4][3]="경제수학";
+                    Subject[4][4]="선택 D";
+                    Subject[4][5]="선택 B";
+                    Subject[4][6]="체육";
+                    Subject[4][7]="영어 A";
+                    Subject[5][1]="진로";
+                    Subject[5][2]="언매";
+                    Subject[5][3]="선택 B";
+                    Subject[5][4]="일본어";
+                    Subject[5][5]="영어 B";
+                    Subject[5][6]="자율";
+                    Subject[5][7]="자율";
+                    for(int i=1;i<5;i++){ //i요일
+                        for(int j=1;j<7;j++){  //교시
+                            CurrentSubject=Subject[i][j];
+                            if(i==1 ){
+                                cellnum="cell_Monday"+j;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                cellTextView.setText(CurrentSubject);
+                            }else if(i==2 ){
+                                cellnum="cell_Tuesday"+j;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                cellTextView.setText(CurrentSubject);
+                            }else if(i==3 ){
+                                cellnum="cell_Wednesday"+j;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                cellTextView.setText(CurrentSubject);
+                            }else if(i==4 ){
+                                cellnum="cell_Thursday"+j;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                cellTextView.setText(CurrentSubject);
+                            }else if(i==5 ){
+                                cellnum="cell_Friday"+j;
+                                int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
+                                cellTextView = findViewById(resId);
+                                cellTextView.setText(CurrentSubject);
+                            }
+                        }
+                    }
+                }
             }
         });
 
         for(int i=1;i<5;i++){ //i요일
             for(int j=1;j<7;j++){  //교시
                 CurrentSubject=Subject[i][j];
-                if(i==1&&j!=5){
+                if(i==1 ){
                     cellnum="cell_Monday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     cellTextView.setText(CurrentSubject);
-                }else if(i==2&&j!=5){
+                }else if(i==2 ){
                     cellnum="cell_Tuesday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     cellTextView.setText(CurrentSubject);
-                }else if(i==3&&j!=5){
+                }else if(i==3 ){
                     cellnum="cell_Wednesday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     cellTextView.setText(CurrentSubject);
-                }else if(i==4&&j!=5){
+                }else if(i==4 ){
                     cellnum="cell_Thursday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
                     cellTextView.setText(CurrentSubject);
-                }else if(i==5&&j!=5){
+                }else if(i==5 ){
                     cellnum="cell_Friday"+j;
                     int resId = getResources().getIdentifier(cellnum, "id", getPackageName());
                     cellTextView = findViewById(resId);
